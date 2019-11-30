@@ -49,6 +49,7 @@ export default function Dashboard() {
     }
     return (
         <>
+        <span style={{color: 'red'}}>{error}</span>
         <div className='container'>
             <Form url={'http://localhost:4000/sendMessage'}
                   topics={topics}

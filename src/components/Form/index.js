@@ -7,12 +7,11 @@ export default function Form(props) {
             props.setError('você não pode fazer uma requisição sem tópico')
             return
         }
+        props.setError('')
+        props.onChangeTopics(props.topic)
+        props.onChangeTopic('')
         axios.post(`${props.url}`, { topic: props.topic, msg: props.message })
         .then(res => {
-            props.setError('')
-            props.onChangeTopics(props.topic)
-            props.onChangeMessages(props.messages)
-            props.onChangeTopic('')
             console.log(res.data);
         })
     }
