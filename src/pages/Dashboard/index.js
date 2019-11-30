@@ -13,7 +13,7 @@ export default function Dashboard() {
     useEffect(() => {
         function messageReq() {
             setTimeout(() => {
-                axios.post('localhost:4000/getMessageByTopic', { topics })
+                axios.post('http://localhost:4000/getMessageByTopic', { topics })
                 .then(res => {
                 setMessages([...messages, ...res.data.messages])
                 console.log(res.data);
@@ -50,7 +50,7 @@ export default function Dashboard() {
     return (
         <>
         <div className='container'>
-            <Form url={'localhost:4000/sendMessage'}
+            <Form url={'http://localhost:4000/sendMessage'}
                   topics={topics}
                   topic={topic}
                   message={message}
