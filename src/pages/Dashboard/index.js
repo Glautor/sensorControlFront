@@ -11,16 +11,18 @@ export default function Dashboard() {
     const [error, setError] = useState('')
 
     useEffect(() => {
-        function messageReq = setTimeout(() => {
-            axios.post('localhost:4000/getMessageByTopic', { topics })
-            .then(res => {
-              setMessages([...messages, ...res.data.messages])
-              console.log(res.data);
-            })
-            .catch((err) => {
-                console.log(err)
-            })
-        }, 3000)
+        function messageReq() {
+            setTimeout(() => {
+                axios.post('localhost:4000/getMessageByTopic', { topics })
+                .then(res => {
+                setMessages([...messages, ...res.data.messages])
+                console.log(res.data);
+                })
+                .catch((err) => {
+                    console.log(err)
+                })
+            }, 3000)
+        }
         messageReq()
     }, [topics, messages])
 
